@@ -76,7 +76,7 @@ const DailyStats: React.FC<DailyStatsProps> = ({ stats }) => {
               </div>
 
               {/* Detailed Session List */}
-              <div style={{ backgroundColor: '#0206174D' }}> {/* Darker inner background */}
+              <div style={{ backgroundColor: '#1E22244D' }}> {/* Darker inner background */}
                 {stat.sessions.map((session, index) => (
                   <div 
                     key={session.id}
