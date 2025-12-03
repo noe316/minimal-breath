@@ -24,16 +24,29 @@ const DailyStats: React.FC<DailyStatsProps> = ({ stats }) => {
       
       {/* Header Row */}
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-xl font-light" style={{ color: Theme.Main }}>
-          Daily Progress (KST)
-        </h2>
-        <button 
+        <div>
+          <h2 className="text-xl font-light" style={{ color: Theme.Main }}>
+            &#10004; Daily Progress
+          </h2>
+          <a
+            href="https://instagram.com/_noe.noe.noe_"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[14px] "
+            style={{ color: Theme.Main }}
+          >
+            More tools like this @_noe.noe.noe_
+          </a>
+        </div>
+
+        <button
           onClick={() => setIsVisible(!isVisible)}
           className="text-sm underline decoration-slate-600 underline-offset-4 transition-colors hover:text-white"
           style={{ color: Theme.TextSecondary }}
         >
           {isVisible ? 'Hide History' : 'Show History'}
         </button>
+
       </div>
 
       {/* List Container */}

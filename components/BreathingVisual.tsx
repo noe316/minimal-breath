@@ -55,6 +55,7 @@ const BreathingVisual: React.FC<BreathingVisualProps> = ({ phase, timeLeft }) =>
     ? maxStroke - ((config.duration - timeLeft) / config.duration) * maxStroke 
     : 0;
 
+
   return (
     <div className="relative flex items-center justify-center w-80 h-80 my-4">
       {/* Background Rings */}

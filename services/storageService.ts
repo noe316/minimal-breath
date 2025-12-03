@@ -50,28 +50,38 @@ export const getHistory = (): SessionRecord[] => {
   }
 };
 
+// 예: "2025-12-03" 형태로 로컬 날짜 반환
+const getLocalDateString = (timestamp: number): string => {
+  const d = new Date(timestamp); // 브라우저 로컬 타임존 기준
+
+  const year = d.getFullYear();
+  const month = `${d.getMonth() + 1}`.padStart(2, '0'); // 0~11 → 1~12
+  const day = `${d.getDate()}`.padStart(2, '0');
+
+  return `${year}-${month}-${day}`;
+};
 export const getDailyStats = (): DailyStat[] => {
   const history = getHistory();
   const groups: Record<string, DailyStat> = {};
 
   history.forEach(record => {
-    const kstDate = getKSTDateString(record.timestamp);
-    
-    if (!groups[kstDate]) {
-      groups[kstDate] = {
-        date: kstDate,
+    // ✅ KST 대신 사용자 로컬 타임존 기준 날짜로 그룹핑
+    const localDate = getLocalDateString(record.timestamp);
+
+    if (!groups[localDate]) {
+      groups[localDate] = {
+        date: localDate,
         count: 0,
         totalDuration: 0,
         sessions: []
       };
     }
 
-    groups[kstDate].count += 1;
-    groups[kstDate].totalDuration += record.totalDurationSec;
-    groups[kstDate].sessions.push(record);
+    groups[localDate].count += 1;
+    groups[localDate].totalDuration += record.totalDurationSec;
+    groups[localDate].sessions.push(record);
   });
 
-  // Convert to array and sort by date descending
   return Object.values(groups).sort((a, b) => b.date.localeCompare(a.date));
 };
 

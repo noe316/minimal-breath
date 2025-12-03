@@ -8,7 +8,7 @@ import { StopCircle, Minus, Plus } from 'lucide-react';
 
 const App: React.FC = () => {
   // State
-  const [targetCycles, setTargetCycles] = useState<number>(1);
+  const [targetCycles, setTargetCycles] = useState<number>(3);
   const [currentCycle, setCurrentCycle] = useState<number>(0);
   const [phase, setPhase] = useState<BreathingPhase>(BreathingPhase.IDLE);
   const [timeLeft, setTimeLeft] = useState<number>(0);
@@ -118,12 +118,12 @@ const App: React.FC = () => {
   const totalTimeSeconds = targetCycles * oneLoopTime;
 
   return (
-    <div style={containerStyle} className="flex flex-col items-center pt-6 pb-12 px-6 transition-colors duration-500 font-sans selection:bg-indigo-500 selection:text-white">
+    <div style={containerStyle} className="flex flex-col items-center py-12 px-6 transition-colors duration-500 font-sans selection:bg-indigo-500 selection:text-white">
       
       {/* Header */}
       <header className="mb-10 text-center">
         <h1 
-            className="text-3xl md:text-6xl font-semibold mb-2 tracking-tight flex items-center justify-center"
+            className="text-3xl md:text-5xl font-semibold mb-2 tracking-tight flex items-center justify-center"
             style={{ color: Theme.Main }}
         >
             4<span className="text-slate-600 mx-2 font-thin">-</span>6<span className="text-slate-600 mx-2 font-thin">-</span>8
@@ -160,60 +160,74 @@ const App: React.FC = () => {
 
       {/* Controls */}
       {!isActive ? (
-        <div 
-          className="backdrop-blur-xl p-8 rounded-3xl border shadow-2xl w-full max-w-sm animate-in slide-in-from-bottom-4 fade-in duration-700"
-          style={{ 
-            backgroundColor: `${Theme.Surface}CC`, // 80% opacity
-            borderColor: `${Theme.Border}80`
-          }}
-        >
-          <label className="block text-sm font-medium mb-4 text-center" style={{ color: Theme.TextSecondary }}>
-            Number of Loops
-          </label>
-          
-          <div className="flex items-center justify-center mb-8">
-            <button 
-                onClick={() => setTargetCycles(Math.max(1, targetCycles - 1))}
-                className="w-12 h-12 rounded-full transition flex items-center justify-center text-xl active:scale-95"
-                style={{ backgroundColor: Theme.Border, color: Theme.TextPrimary }}
-            >
-                <Minus size={20} />
-            </button>
-            
-            <input 
-                className="w-24 text-center bg-transparent text-4xl font-bold border-none focus:ring-0 mx-4 tabular-nums outline-none appearance-none" 
-                type="number" 
-                value={targetCycles}
-                onChange={handleCycleChange}
-                style={{ color: Theme.TextPrimary }}
-            />
-            
-            <button 
-                onClick={() => setTargetCycles(Math.min(50, targetCycles + 1))}
-                className="w-12 h-12 rounded-full transition flex items-center justify-center text-xl active:scale-95"
-                style={{ backgroundColor: Theme.Border, color: Theme.TextPrimary }}
-            >
-                <Plus size={20} />
-            </button>
-          </div>
-          
-          <div className="text-center text-xs mb-8 space-y-1" style={{ color: Theme.TextSecondary }}>
-            <p>Inhale: 4s • Hold: 6s • Exhale: 8s</p>
-            <p>Total time: {totalTimeSeconds} seconds</p>
-          </div>
-          
-          <button 
-            onClick={startSession}
-            className="w-full py-4 rounded-xl text-lg font-medium transition-all shadow-lg transform hover:-translate-y-0.5 active:scale-95"
-            style={{ 
-                backgroundColor: Theme.Sub, 
-                color: '#fff',
-                boxShadow: `0 0 20px ${Theme.Sub}50` 
+        <>
+          <div
+            className="backdrop-blur-xl p-8 rounded-3xl border shadow-2xl w-full max-w-sm animate-in slide-in-from-bottom-4 fade-in duration-700"
+            style={{
+              backgroundColor: `${Theme.Surface}CC`, // 80% opacity
+              borderColor: `${Theme.Border}80`
             }}
           >
-            Start Breathing
-          </button>
-        </div>
+            <label className="block text-sm font-medium mb-4 text-center" style={{color: Theme.TextSecondary}}>
+              Number of Loops
+            </label>
+
+            <div className="flex items-center justify-center mb-8">
+              <button
+                onClick={() => setTargetCycles(Math.max(1, targetCycles - 1))}
+                className="w-12 h-12 rounded-full transition flex items-center justify-center text-xl active:scale-95"
+                style={{backgroundColor: Theme.Border, color: Theme.TextPrimary}}
+              >
+                <Minus size={20}/>
+              </button>
+
+              <input
+                className="w-24 text-center bg-transparent text-4xl font-bold border-none focus:ring-0 mx-4 tabular-nums outline-none appearance-none"
+                type="number"
+                value={targetCycles}
+                onChange={handleCycleChange}
+                style={{color: Theme.TextPrimary}}
+              />
+
+              <button
+                onClick={() => setTargetCycles(Math.min(50, targetCycles + 1))}
+                className="w-12 h-12 rounded-full transition flex items-center justify-center text-xl active:scale-95"
+                style={{backgroundColor: Theme.Border, color: Theme.TextPrimary}}
+              >
+                <Plus size={20}/>
+              </button>
+            </div>
+
+            <div className="text-center text-xs mb-8 space-y-1" style={{color: Theme.TextSecondary}}>
+              <p>Inhale: 4s • Hold: 6s • Exhale: 8s</p>
+              <p>Total time: {totalTimeSeconds} seconds</p>
+            </div>
+
+            <button
+              onClick={startSession}
+              className="w-full py-4 rounded-xl text-lg font-medium transition-all shadow-lg transform hover:-translate-y-0.5 active:scale-95"
+              style={{
+                backgroundColor: Theme.Sub,
+                color: '#fff',
+                boxShadow: `0 0 20px ${Theme.Sub}50`
+              }}
+            >
+              Start Breathing
+            </button>
+          </div>
+          <a
+            href="https://instagram.com/_noe.noe.noe_"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[14px] mt-2 "
+            style={{color: Theme.Main}}
+          >
+            <span
+              className="pr-1"
+              style={{color: Theme.Sub}}
+            >More tools like this</span> @_noe.noe.noe_
+          </a>
+      </>
       ) : (
         <div className="flex gap-4 animate-in fade-in zoom-in duration-300 w-full max-w-sm">
           <button
@@ -242,15 +256,14 @@ const App: React.FC = () => {
             className="mt-10 text-[10px] uppercase tracking-widest opacity-30 flex flex-col items-center gap-1"
             style={{ color: Theme.TextSecondary }}
         >
-            <a
-                href="https://instagram.com/_noe.noe.noe_"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[14px] "
-                style={{ color: Theme.TextPrimary }}
-            >
-                @_noe.noe.noe_
-            </a>
+          <a
+            href="https://instagram.com/_noe.noe.noe_"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[14px] mt-2 "
+            style={{color: Theme.Main}}
+          >@_noe.noe.noe_
+          </a>
             {new Date().getFullYear()} Minimal Breath
         </footer>
     </div>
