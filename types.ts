@@ -1,3 +1,4 @@
+/// <reference types="vite/client" />
 export enum BreathingPhase {
   IDLE = 'IDLE',
   INHALE = 'INHALE',
@@ -25,3 +26,4 @@ export type PhaseConfig = {
   label: string;
   instruction: string;
 };
+

@@ -13,3 +13,17 @@ root.render(
     <App />
   </React.StrictMode>
 );
+
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        const swUrl = `${import.meta.env.BASE_URL}service-worker.js`;
+        // import.meta.env.BASE_URL
+        // dev 모드: /
+        // GitHub Pages 배포 후: /468-breathing/
+        navigator.serviceWorker
+            .register(swUrl)
+            .catch((err) => {
+                console.error("SW registration failed:", err);
+            });
+    });
+}
