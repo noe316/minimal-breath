@@ -21,16 +21,28 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-            },
-            animation: {
-              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-            }
+          theme: {
+              extend: {
+                  fontFamily: {
+                      sans: ['Inter', 'sans-serif'],
+                  },
+                  animation: {
+                      'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                  }
+              },
+              extend: {
+                  animation: {
+                      idlePulse: "idlePulse 2.4s ease-in-out infinite",
+                  },
+                  keyframes: {
+                      idlePulse: {
+                          '0%': { transform: 'scale(1)', opacity: '0.3' },
+                          '50%': { transform: 'scale(1.08)', opacity: '0.5' },
+                          '100%': { transform: 'scale(1)', opacity: '0.3' },
+                      },
+                  },
+              },
           },
-        },
       }
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -57,6 +69,11 @@
       input[type=number] {
         -moz-appearance: textfield;
       }
+      @keyframes idlePulse {
+        0% { transform: scale(1); opacity: 0.3; }
+        50% { transform: scale(1.08); opacity: 0.5; }
+        100% { transform: scale(1); opacity: 0.3; }
+      }
     </style>
 
 <!--<link rel="stylesheet" href="/index.css">-->
@@ -70,7 +87,7 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/minimal-breath/assets/index-Bwz6SdmW.js"></script>
+  <script type="module" crossorigin src="/minimal-breath/assets/index-B807LLeH.js"></script>
 </head>
   <body>
     <div id="root"></div>
