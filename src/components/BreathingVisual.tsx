@@ -69,15 +69,16 @@ const BreathingVisual: React.FC<BreathingVisualProps> = ({ phase, timeLeft }) =>
       
       {/* The Breathing Circle */}
       <div
-        className="rounded-full shadow-2xl flex items-center justify-center z-10 blur-sm"
+        className={`rounded-full shadow-2xl flex items-center justify-center z-10 blur-sm
+        ${phase === BreathingPhase.IDLE ? "animate-idlePulse" : ""}`}
         style={{
           width: '120px',
           height: '120px',
           backgroundColor: color,
           opacity: opacity,
-          transform: `scale(${scale})`,
+          transform: phase === BreathingPhase.IDLE ? undefined : `scale(${scale})`,
           transitionProperty: 'transform, background-color, opacity',
-          transitionTimingFunction: 'cubic-bezier(0.4, 0.0, 0.2, 1)', 
+          transitionTimingFunction: 'cubic-bezier(0.4, 0.0, 0.2, 1)',
           transitionDuration: transitionDuration,
           boxShadow: `0 0 50px ${color}40`
         }}
