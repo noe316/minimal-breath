@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { BreathingPhase } from './types';
-import { Theme, BREATHING_CONFIG } from './constants';
-import { saveSession, getDailyStats } from './services/storageService';
-import BreathingVisual from './components/BreathingVisual';
-import DailyStats from './components/DailyStats';
+import { BreathingPhase } from './types.ts';
+import { Theme, BREATHING_CONFIG } from './constants.ts';
+import { saveSession, getDailyStats } from '@/src/services/storageService.ts';
+import BreathingVisual from '@/src/components/BreathingVisual.tsx';
+import DailyStats from '@/src/components/DailyStats.tsx';
 import { StopCircle, Minus, Plus } from 'lucide-react';
 
 const App: React.FC = () => {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { BreathingPhase } from '../types';
-import { Theme, BREATHING_CONFIG } from '../constants';
+import { BreathingPhase } from '../types.ts';
+import { Theme, BREATHING_CONFIG } from '../constants.ts';
 
 interface BreathingVisualProps {
   phase: BreathingPhase;

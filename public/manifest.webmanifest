@@ -6,13 +6,13 @@
   "display": "standalone",
   "icons": [
     {
-       "src": "/minimal-breath/web-app-manifest-192x192.png",
+       "src": "public/icons/minimal-breath/web-app-manifest-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/minimal-breath/web-app-manifest-512x512.png",
+      "src": "public/icons/minimal-breath/web-app-manifest-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
@@ -20,5 +20,4 @@
   ],
   "theme_color": "#fff",
   "background_color": "#000",
-  "display": "standalone"
 }

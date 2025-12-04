@@ -1,4 +1,4 @@
-import { BreathingPhase, PhaseConfig } from './types';
+import { BreathingPhase, PhaseConfig } from './types.ts';
 
 // ==========================================
 // COLOR PALETTE (Deep Night & Bioluminescence)

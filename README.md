@@ -1,20 +1,66 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>`
-`
-# Run and deploy your AI Studio app
+# 🌬️ Minimal Breath — 4·7·8 Breathing App
 
-This contains everything you need to run your app locally.
+A minimal, calming **4·7·8 breathing timer** designed for nervous system regulation, focus, and relaxation.  
+Built with **React + TypeScript + Vite** and fully installable as a **PWA**.
 
-View your app in AI Studio: https://ai.studio/apps/temp/2
+---
 
-## Run Locally
+## ✨ Features
+- Guided **4 → 7 → 8** breathing cycle
+- Clean, distraction-free minimal UI
+- Smooth breathing animation
+- Mobile-first design
+- **PWA support** (installable on iOS & Android)
+- Offline mode via Service Worker
 
-**Prerequisites:**  Node.js
+---
+
+## 📱 Install (PWA)
+
+### iOS (Safari)
+1. Open the app in Safari
+2. Tap **Share**
+3. Choose **Add to Home Screen**
+4. Launch from the new icon (fullscreen mode)
+
+### Android (Chrome)
+1. Open the app
+2. Tap the menu (⋮)
+3. Select **Install App**
+4. Launch in standalone mode
+
+---
+
+## 🧪 Demo
+**Live App:**  
+https://noe316.github.io/minimal-breath/
+
+---
+
+## 🛠️ Tech Stack
+- React
+- TypeScript
+- Vite
+- CSS / Tailwind
+- Service Worker
+- Web App Manifest
+
+---
+
+## 📂 Project Structure
 
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+---
+## GitHub Pages deployment uses:
+base: "/minimal-breath/"
+
+
+## 🚀 Development
+```bash
+npm install
+npm run dev
+```
+
+## Author
+Designed & built by **@_noe.noe.noe_**  
+https://instagram.com/_noe.noe.noe_

@@ -1,5 +1,5 @@
-import { SessionRecord, DailyStat } from '../types';
-import { LOCAL_STORAGE_KEY } from '../constants';
+import { SessionRecord, DailyStat } from '../types.ts';
+import { LOCAL_STORAGE_KEY } from '../constants.ts';
 
 // Helper to get KST Date String (YYYY-MM-DD)
 export const getKSTDateString = (timestamp: number): string => {

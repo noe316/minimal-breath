@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { DailyStat } from '../types';
-import { formatDuration, formatTimeKST } from '../services/storageService';
-import { Theme } from '../constants';
+import { DailyStat } from '../types.ts';
+import { formatDuration, formatTimeKST } from '@/src/services/storageService.ts';
+import { Theme } from '../constants.ts';
 
 interface DailyStatsProps {
   stats: DailyStat[];
