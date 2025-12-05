@@ -1,5 +1,8 @@
 # 🌬️ Minimal Breath — 4·7·8 Breathing App
 
+Designed & built by **`@_noe.noe.noe_`**  
+<https://instagram.com/_noe.noe.noe_>
+
 A minimal, calming **4·7·8 breathing timer** designed for nervous system regulation, focus, and relaxation.  
 Built with **React + TypeScript + Vite** and fully installable as a **PWA**.
 
@@ -45,22 +48,9 @@ https://noe316.github.io/minimal-breath/
 - Service Worker
 - Web App Manifest
 
----
-
-## 📂 Project Structure
 
 
----
-## GitHub Pages deployment uses:
-base: "/minimal-breath/"
 
 
-## 🚀 Development
-```bash
-npm install
-npm run dev
-```
 
-## Author
-Designed & built by **@_noe.noe.noe_**  
-https://instagram.com/_noe.noe.noe_
+

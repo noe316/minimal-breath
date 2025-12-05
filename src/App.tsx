@@ -199,7 +199,7 @@ const App: React.FC = () => {
             </div>
 
             <div className="text-center text-xs mb-8 space-y-1" style={{color: Theme.TextSecondary}}>
-              <p>Inhale: 4s • Hold: 6s • Exhale: 8s</p>
+              <p>Inhale: 4s • Hold: 7s • Exhale: 8s</p>
               <p>Total time: {totalTimeSeconds} seconds</p>
             </div>
 
