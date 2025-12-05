@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BreathingPhase } from '../types.ts';
 import { Theme, BREATHING_CONFIG } from '../constants.ts';
+import {DotTimer} from './DotTimer';
 
 interface BreathingVisualProps {
   phase: BreathingPhase;
@@ -13,6 +14,12 @@ const BreathingVisual: React.FC<BreathingVisualProps> = ({ phase, timeLeft }) =>
   const [opacity, setOpacity] = useState(0.5);
 
   const config = BREATHING_CONFIG[phase];
+
+  const totalSeconds = config?.duration ?? 0;
+
+  const isActivePhase =
+      phase !== BreathingPhase.IDLE &&
+      phase !== BreathingPhase.COMPLETED;
 
   useEffect(() => {
     switch (phase) {
@@ -86,11 +93,21 @@ const BreathingVisual: React.FC<BreathingVisualProps> = ({ phase, timeLeft }) =>
       </div>
 
       {/* Center Number Overlay (Only Number) */}
-      <div className="absolute z-20 flex flex-col items-center justify-center pointer-events-none drop-shadow-md">
-        {(phase !== BreathingPhase.IDLE && phase !== BreathingPhase.COMPLETED) && (
-          <span className="text-5xl font-light tabular-nums" style={{ color: Theme.TextPrimary }}>
-            {Math.ceil(timeLeft)}
-          </span>
+      {/*<div className="absolute z-20 flex flex-col items-center justify-center pointer-events-none drop-shadow-md">*/}
+      {/*  {(phase !== BreathingPhase.IDLE && phase !== BreathingPhase.COMPLETED) && (*/}
+      {/*    <span className="text-5xl font-light tabular-nums" style={{ color: Theme.TextPrimary }}>*/}
+      {/*      {Math.ceil(timeLeft)}*/}
+      {/*    </span>*/}
+      {/*      )}*/}
+      {/*</div>*/}
+
+      {/* Center Dot Pattern Overlay */}
+      <div className="absolute z-20 flex items-center justify-center pointer-events-none drop-shadow-md">
+        {isActivePhase && totalSeconds > 0 && (
+            <DotTimer
+                totalSeconds={totalSeconds}
+                timeLeft={Math.ceil(timeLeft)}
+            />
         )}
       </div>
 

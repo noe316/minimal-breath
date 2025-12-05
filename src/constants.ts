@@ -1,5 +1,6 @@
 import { BreathingPhase, PhaseConfig } from './types.ts';
 
+
 // ==========================================
 // COLOR PALETTE (Deep Night & Bioluminescence)
 // ==========================================
@@ -30,6 +31,38 @@ export const BREATHING_CONFIG: Record<BreathingPhase, PhaseConfig> = {
   [BreathingPhase.HOLD]: { duration: 7, label: 'Hold', instruction: 'Hold breath...' },
   [BreathingPhase.EXHALE]: { duration: 8, label: 'Exhale', instruction: 'Release...' },
   [BreathingPhase.COMPLETED]: { duration: 0, label: 'Done', instruction: 'Completed' },
+};
+
+// 초별 Dot 패턴 (3x3 그리드)
+// 1 = 도트, 0 = 빈칸
+export const DOT_PATTERNS: Record<number, number[][]> = {
+  4: [
+    // 4초
+    //     ●
+    // ●       ●
+    //     ●
+    [0, 1, 0],
+    [1, 0, 1],
+    [0, 1, 0],
+  ],
+  7: [
+    // 7초
+    //   ● ●
+    // ● ● ●
+    //   ● ●
+    [1, 0, 1],
+    [1, 1, 1],
+    [1, 0, 1],
+  ],
+  8: [
+    // 8초
+    // ● ● ●
+    //   ● ●
+    // ● ● ●
+    [1, 1, 1],
+    [1, 0, 1],
+    [1, 1, 1],
+  ],
 };
 
 export const LOCAL_STORAGE_KEY = 'breathing_app_history_v1';
